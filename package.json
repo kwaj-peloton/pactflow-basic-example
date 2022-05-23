@@ -1,0 +1,27 @@
+{
+  "name": "example-app-jest-example",
+  "version": "1.0.0",
+  "description": "Example App Pact example using Jest",
+  "main": "app-consumer/example-app.js",
+  "scripts": {
+    "start": "node api-provider/example-api.js",
+    "test:consumer": "rimraf pacts && jest app-consumer/__tests__/ --runInBand",
+    "test:provider": "npx jest --testTimeout 30000 --testMatch \"**/*.pact.test.js\"",
+    "test:publish": "node publish.js"
+  },
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact": "^9.11.1",
+    "jest": "^26.6.3",
+    "jest-pact": "^0.5.2",
+    "rimraf": "^2.6.2"
+  }
+}
